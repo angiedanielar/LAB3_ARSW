@@ -46,23 +46,23 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
     /*La fila y columna no pueden menores de 1, y no pueden estar vacio el cinema, 
     la fecha y el nombre de la pelicula*/
     @Override
+    @SuppressWarnings("empty-statement")
     public void buyTicket(int row, int col, String cinema, String date, String movieName) throws CinemaPersistenceException {
-        if((row <= 0) || (col <= 0)){
-            throw new CinemaPersistenceException("Fila o columna invalida");
-        }; 
-        
+        if((row <= 0)){
+            throw new CinemaPersistenceException("Fila invalida");
+        };  
+        if((col <= 0)){
+            throw new CinemaPersistenceException("Columna invalida");
+        };  
         if(cinema == null){
             throw new CinemaPersistenceException("El nombre del cine no puede estar vacio");
-        };
-        
+        };        
         if(date == null){
             throw new CinemaPersistenceException("La fecha puede estar vacia");
-        };
-        
+        };        
         if(movieName == null){
             throw new CinemaPersistenceException("El nombre de la pelicula no puede estar vacio");
-        };
-        
+        };        
         Cinema cine =getCinemaByName(cinema);
         if(cine == null){
             throw new CinemaPersistenceException("Este cinema no existe");
@@ -94,7 +94,11 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
             throw new CinemaPersistenceException("El cinema que busca no existe");
         }
  
-        List<CinemaFunction> funciones = cine.
+        try {
+            return cine.getFunctionsDate(date);
+        } catch (CinemaException ex) {
+            throw new CinemaPersistenceException(ex.getMessage(), ex);
+        }        
     }
 
     @Override
@@ -115,8 +119,7 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
         }
         if(!cinemas.containsKey(name)){
             throw new CinemaPersistenceException("El cinema que busca no existe");
-        }
-        
+        }        
         return cinemas.get(name);
     }
     

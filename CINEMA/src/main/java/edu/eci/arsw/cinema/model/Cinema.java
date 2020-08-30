@@ -6,6 +6,7 @@
 package edu.eci.arsw.cinema.model;
 
 import edu.eci.arsw.cinema.persistence.CinemaException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,15 +14,16 @@ import java.util.List;
  * @author cristian
  */
 public class Cinema {
+
     private String name;
-    private List<CinemaFunction> functions; 
-    
-    
-    public Cinema(){}
-    
-    public Cinema(String name,List<CinemaFunction> functions){
-        this.name=name;
-        this.functions=functions;
+    private List<CinemaFunction> functions;
+
+    public Cinema() {
+    }
+
+    public Cinema(String name, List<CinemaFunction> functions) {
+        this.name = name;
+        this.functions = functions;
     }
 
     public String getName() {
@@ -36,10 +38,23 @@ public class Cinema {
         return this.functions;
     }
 
+    public List<CinemaFunction> getFunctionsDate(String date) throws CinemaException {
+        List<CinemaFunction> functionsDate = new ArrayList<>();
+        for (CinemaFunction func : functions) {
+            if (func.getDate().equals(date)) {
+                functionsDate.add(func);
+            }
+        }
+        if (functionsDate.isEmpty()) {
+            throw new CinemaException("No hay funciones en esta hora");
+        }
+        return functionsDate;
+    }
+
     public void setSchedule(List<CinemaFunction> functions) {
         this.functions = functions;
     }
-    
+
     public CinemaFunction existeFuncion(String name, String date) throws CinemaException {
         //para que no de error se deja null
         CinemaFunction funcion = null;
@@ -49,7 +64,12 @@ public class Cinema {
                 break;
             }
         }
-       
         return funcion;
     }
+
+    @Override
+    public String toString() {
+        return "Cinema{" + "name=" + name + ", functions=" + functions + '}';
+    }
+    
 }

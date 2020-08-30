@@ -22,10 +22,9 @@ public interface CinemaPersitence {
      * @param col the column of the seat
      * @param cinema the cinema's name
      * @param date the date of the function
-     * @param movieName the name of the movie
-     * 
-     * @throws CinemaException if the seat is occupied,
-     *    or any other low-level persistence error occurs.
+     * @param movieName the name of the movie     * 
+     * @throws CinemaPersistenceException if the seat is occupied,
+     * or any other low-level persistence error occurs.
      */
     public void buyTicket(int row, int col, String cinema, String date, String movieName) throws CinemaPersistenceException;
     
@@ -35,7 +34,7 @@ public interface CinemaPersitence {
      * @param date date
      * @return the list of the functions of the cinema in the given date
      */
-    public List<CinemaFunction> getFunctionsbyCinemaAndDate(String cinema, String date);
+    public List<CinemaFunction> getFunctionsbyCinemaAndDate(String cinema, String date) throws CinemaPersistenceException;
     
     /**
      * 
@@ -44,8 +43,7 @@ public interface CinemaPersitence {
      */
     public void saveCinema(Cinema cinema) throws CinemaPersistenceException;
     
-    /**
-     * 
+    /**     
      * @param name name of the cinema
      * @return Cinema of the given name
      * @throws  CinemaPersistenceException if there is no such cinema
