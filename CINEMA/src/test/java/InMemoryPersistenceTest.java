@@ -36,8 +36,8 @@ public class InMemoryPersistenceTest {
         Cinema c=new Cinema("Movies Bogotá",functions);
         ipct.saveCinema(c);
         
-        assertNotNull("Loading a previously stored cinema returned null.",ipct.getCinema(c.getName()));
-        assertEquals("Loading a previously stored cinema returned a different cinema.",ipct.getCinema(c.getName()), c);
+        assertNotNull("Loading a previously stored cinema returned null.",ipct.getCinemaByName(c.getName()));
+        assertEquals("Loading a previously stored cinema returned a different cinema.",ipct.getCinemaByName(c.getName()), c);
     }
 
 

@@ -8,6 +8,7 @@ package edu.eci.arsw.cinema.persistence;
 import edu.eci.arsw.cinema.model.Cinema;
 import edu.eci.arsw.cinema.model.CinemaFunction;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -26,7 +27,7 @@ public interface CinemaPersitence {
      * @throws CinemaException if the seat is occupied,
      *    or any other low-level persistence error occurs.
      */
-    public void buyTicket(int row, int col, String cinema, String date, String movieName) throws CinemaException;
+    public void buyTicket(int row, int col, String cinema, String date, String movieName) throws CinemaPersistenceException;
     
     /**
      * 
@@ -49,6 +50,12 @@ public interface CinemaPersitence {
      * @return Cinema of the given name
      * @throws  CinemaPersistenceException if there is no such cinema
      */
-    public Cinema getCinema(String name) throws CinemaPersistenceException;
+    public Cinema getCinemaByName(String name) throws CinemaPersistenceException;
+    
+    /**
+     * 
+     *  obtiene todos los cinemas
+     */
+    public Set<Cinema> getCinemas();
     
 }

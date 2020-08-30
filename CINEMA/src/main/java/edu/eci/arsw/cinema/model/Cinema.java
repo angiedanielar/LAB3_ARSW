@@ -5,6 +5,7 @@
  */
 package edu.eci.arsw.cinema.model;
 
+import edu.eci.arsw.cinema.persistence.CinemaException;
 import java.util.List;
 
 /**
@@ -37,5 +38,18 @@ public class Cinema {
 
     public void setSchedule(List<CinemaFunction> functions) {
         this.functions = functions;
+    }
+    
+    public CinemaFunction existeFuncion(String name, String date) throws CinemaException {
+        //para que no de error se deja null
+        CinemaFunction funcion = null;
+        for (CinemaFunction f : functions) {
+            if ((f.getMovie().getName().equals(name)) && (f.getDate().equals(date))) {
+                funcion = f;
+                break;
+            }
+        }
+       
+        return funcion;
     }
 }
