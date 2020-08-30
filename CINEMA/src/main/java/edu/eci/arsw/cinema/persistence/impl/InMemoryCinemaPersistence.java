@@ -48,12 +48,9 @@ public class InMemoryCinemaPersistence implements CinemaPersitence{
     @Override
     @SuppressWarnings("empty-statement")
     public void buyTicket(int row, int col, String cinema, String date, String movieName) throws CinemaPersistenceException {
-        if((row <= 0)){
-            throw new CinemaPersistenceException("Fila invalida");
-        };  
-        if((col <= 0)){
-            throw new CinemaPersistenceException("Columna invalida");
-        };  
+        if((row <= 0) || col <= 0){
+            throw new CinemaPersistenceException("Fila invalida o clumna inválidas");
+        };          
         if(cinema == null){
             throw new CinemaPersistenceException("El nombre del cine no puede estar vacio");
         };        

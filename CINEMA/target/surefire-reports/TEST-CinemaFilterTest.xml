@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="InMemoryPersistenceTest" time="0" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="CinemaFilterTest" time="0.921" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="14.0.1+7"/>
@@ -61,14 +61,5 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="InMemoryPersistenceTest" name="shouldNotBuyTicketsWithInvalidRowOrColumn" time="0"/>
-  <testcase classname="InMemoryPersistenceTest" name="shouldNotBuyTicketsWithNullParameter" time="0"/>
-  <testcase classname="InMemoryPersistenceTest" name="shouldGetFunctionsByCinemaAndDate" time="0"/>
-  <testcase classname="InMemoryPersistenceTest" name="shouldSaveNewAndLoadTest" time="0"/>
-  <testcase classname="InMemoryPersistenceTest" name="shouldNotAddNullCinema" time="0"/>
-  <testcase classname="InMemoryPersistenceTest" name="shouldGetAllCinemas" time="0"/>
-  <testcase classname="InMemoryPersistenceTest" name="shouldNotAddRepeatedCinema" time="0"/>
-  <testcase classname="InMemoryPersistenceTest" name="shouldSaveExistingCinemaTest" time="0"/>
-  <testcase classname="InMemoryPersistenceTest" name="shouldGetCinemasByName" time="0"/>
-  <testcase classname="InMemoryPersistenceTest" name="shouldNotBuyTicketsWithInexistentCinema" time="0"/>
+  <testcase classname="CinemaFilterTest" name="shouldFilterByGenre" time="0.921"/>
 </testsuite>

@@ -6,7 +6,6 @@
 package edu.eci.arsw.cinema.model;
 
 import edu.eci.arsw.cinema.persistence.CinemaException;
-import edu.eci.arsw.cinema.persistence.CinemaPersistenceException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -21,6 +20,7 @@ public class CinemaFunction {
     private Movie movie;
     private List<List<Boolean>> seats=new ArrayList<>();
     private String date;
+    private int emptySeats;
     
     public CinemaFunction(){}
     
@@ -32,19 +32,25 @@ public class CinemaFunction {
             Collections.fill(row, Boolean.TRUE);
             this.seats.add(row);
         }
+        this.emptySeats=84;
     }
     
     public void buyTicket(int row,int col) throws CinemaException{
         if (seats.get(row).get(col).equals(true)){
             seats.get(row).set(col,Boolean.FALSE);
+            emptySeats-=1;
         }
         else{
-            throw new CinemaException("Seat booked");
+            throw new CinemaException("Seat already booked");
         }
     }
     
     public List<List<Boolean>> getSeats() {
         return this.seats;
+    }
+    
+    public int getEmptySeats() {
+        return this.emptySeats;
     }
     
     public Movie getMovie() {

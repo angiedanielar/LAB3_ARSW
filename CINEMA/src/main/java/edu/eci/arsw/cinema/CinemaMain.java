@@ -22,20 +22,33 @@ public class CinemaMain {
         //Consulting cinemas
         System.out.println("Consulting all cinemas");
         System.out.println(cinemaServices.getAllCinemas());                      
-        //Buying tickets
-        for (int i = 2; i < 5; i++) {
+        //Buying tickets for Inception
+        for (int i = 2; i < 12; i++) {
             cinemaServices.buyTicket(1, i, "CineARSW", "2018-07-15 12:00", "Inception");
         }
+        //Buying tickets for Coraline
+        for (int i = 2; i < 3; i++) {
+            cinemaServices.buyTicket(1, i, "CineARSW", "2018-07-15 12:00", "Coraline");
+        }
+        //Gerne Filter
+        System.out.println("Filtering by genre");
+        System.out.println(cinemaServices.getFunctionsbyFilter("CineARSW", "2018-07-15 12:00", "Suspense"));
+        /**Availabilty Filter
+        System.out.println("Filtering by seats");
+        System.out.println(cinemaServices.getFunctionsbyFilter("CineARSW", "2018-07-15 12:00", "80")); */      
         //Consulting a cinema
         System.out.println("Consulting cinemaX");
         System.out.println(cinemaServices.getFunctionsbyCinemaAndDate("cinemaX", "2018-12-18 15:30"));
     }
 
     private static Cinema registerCinema(String name) {
-        Movie movie1 = new Movie("Inception", "Suspense");        
-        ArrayList<CinemaFunction> functions = new ArrayList<>();        
-        CinemaFunction cf = new CinemaFunction(movie1, "2018-07-15 12:00");        
-        functions.add(cf);        
-        return new Cinema(name, functions);
+        Movie m = new Movie("Inception", "Suspense"); 
+        Movie m2 = new Movie("Coraline", "Horror");
+        ArrayList<CinemaFunction> f = new ArrayList<>();        
+        CinemaFunction cf = new CinemaFunction(m, "2018-07-15 12:00");
+        CinemaFunction cf2 = new CinemaFunction(m2, "2018-07-15 12:00");
+        f.add(cf);
+        f.add(cf2);
+        return new Cinema(name, f);
     }
 }
