@@ -35,7 +35,7 @@ _Pruebas del funcionamiento con la clase SpanishSpellChecker (Parte 2):_
 ![alt text](https://raw.githubusercontent.com/angiedanielar/LAB3_ARSW/master/img/5.png)
 
 
-_Las pruebas de los filtros y la configuración de la inyección estan basadas sobre el filtrado por genero. Verificamos que al usar el filtrado de disponibilidad y las pruebas de dicho filtro todo sigue ejecutandose de manera correcta._
+_Las pruebas de los filtros y la configuración de la inyección estan basadas sobre el filtrado por género. Verificamos que al usar el filtro de disponibilidad y las pruebas de dicho filtro todo sigue ejecutandose de manera correcta._
 
 
 _**(A) Resultado filtro por género:**_
