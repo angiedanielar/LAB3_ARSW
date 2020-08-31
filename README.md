@@ -5,7 +5,7 @@
 * _Angie Daniela Ruiz Alfonso_
 * _Juan Sebastian Díaz Salamanca_ 
 ## Introduction to Spring and Configuration using annotations 🔎
-### Parte I
+### Parte I Basic workshop
 _Spring es un framework para el desarrollo de aplicaciones, el cual usa ciertas notaciones para especificar lo siguiente:_
 
 
@@ -31,18 +31,24 @@ _Pruebas del funcionamiento con la clase EnglishSpellChecker (Parte 1):_
 _Pruebas del funcionamiento con la clase SpanishSpellChecker (Parte 2):_
 ![alt text](https://raw.githubusercontent.com/angiedanielar/LAB3_ARSW/master/img/4.png)
 ## Cinema Book System 🎥
-### Parte I - Pruebas
-
-_(A) Filtrado por género:_
-
-
+### Parte I - Pruebas 
 ![alt text](https://raw.githubusercontent.com/angiedanielar/LAB3_ARSW/master/img/5.png)
 
 
-_(B) Filtrado por disponibilidad:_
+_Las pruebas de los filtros y la configuración de la inyección estan basadas sobre el filtrado por genero. Verificamos que al usar el filtrado de disponibilidad y las pruebas de dicho filtro todo sigue ejecutandose de manera correcta._
+
+
+_**(A) Resultado filtro por género:**_
 
 
 ![alt text](https://raw.githubusercontent.com/angiedanielar/LAB3_ARSW/master/img/6.png)
+
+
+_**(B) Resultado filtro disponibilidad:**_
+
+
+![alt text](https://raw.githubusercontent.com/angiedanielar/LAB3_ARSW/master/img/7.png)
+### 
 ## ¡¡¡Compile and run instructions!!! 🛠️
 **_Para compilar:_**
 _maven package_
@@ -54,6 +60,9 @@ _mvn test_
 
 **_Para ejecutar las clases principales:_** 
  * _mvn exec:java -Dexec.mainClass="edu.eci.arsw.springdemo.ui.Main"_
+ 
+ 
+ * _mvn exec:java -Dexec.mainClass="edu.eci.arsw.cinema.Main"_
 
  
 
